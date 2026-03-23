@@ -1,478 +1,166 @@
-!DOCTYPE html
-html lang=zh-TW
-head
-    meta charset=UTF-8
-    meta name=viewport content=width=device-width, initial-scale=1.0
-    title🌸 花仙子魔法占卜 🌸title
-    script src=httpscdn.tailwindcss.comscript
-    style
-        @import url('httpsfonts.googleapis.comcss2family=DotGothic16&display=swap');
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 花仙子魔法占卜 🌸</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
         body {
-            font-family 'DotGothic16', 'Courier New', Courier, monospace;
-            background-color #fdf5f6;
-            background-image radial-gradient(circle at 50% 0%, #ffffff 0%, #fae6ea 80%);
-            margin 0;
-            padding 0;
-            overflow-x hidden;
-            color #63454e;
+            font-family: 'DotGothic16', 'Courier New', Courier, monospace;
+            background-color: #fdf5f6;
+            background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #fae6ea 80%);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            color: #63454e;
         }
 
-         ----- 粉色古典相框設計 ----- 
+        /* ----- 粉色古典相框設計 ----- */
         .frame-wrapper {
-            position relative;
-            margin-top 80px; 
-            margin-bottom 60px;
-            filter drop-shadow(0 15px 20px rgba(163, 124, 134, 0.15));
+            position: relative;
+            margin-top: 80px; 
+            margin-bottom: 60px;
+            filter: drop-shadow(0 15px 20px rgba(163, 124, 134, 0.15));
         }
 
         .pixel-frame {
-            background-color #fcf1f4;
-            border 8px solid #a37c86;
-            box-shadow 
+            background-color: #fcf1f4;
+            border: 8px solid #a37c86;
+            box-shadow: 
                 inset 6px 6px 0px rgba(255, 255, 255, 0.8),
                 inset -6px -6px 0px rgba(163, 124, 134, 0.15),
                 8px 8px 0px rgba(163, 124, 134, 0.2);
-            border-radius 4px;
-            padding 20px;
-            position relative;
+            border-radius: 4px;
+            padding: 20px;
+            position: relative;
         }
 
         .inner-dashed-frame {
-            background-color #ffffff;
-            border 4px dashed #d1a3b0;
-            border-radius 8px;
-            min-height 480px;
-            position relative;
+            background-color: #ffffff;
+            border: 4px dashed #d1a3b0;
+            border-radius: 8px;
+            min-height: 480px;
+            position: relative;
         }
 
-         古典緞帶標題 
+        /* 古典緞帶標題 */
         .pixel-ribbon-wrapper {
-            position absolute;
-            top -40px;
-            left 50%;
-            transform translateX(-50%);
-            z-index 20;
-            text-align center;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            text-align: center;
         }
         
         .pixel-ribbon {
-            background-color #f4d8e0;
-            border 6px solid #a37c86;
-            color #63454e;
-            padding 10px 40px;
-            font-size 1.5rem;
-            font-weight bold;
-            box-shadow 0px 6px 0px rgba(163, 124, 134, 0.3);
-            position relative;
-            z-index 10;
-            white-space nowrap;
+            background-color: #f4d8e0;
+            border: 6px solid #a37c86;
+            color: #63454e;
+            padding: 10px 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0px 6px 0px rgba(163, 124, 134, 0.3);
+            position: relative;
+            z-index: 10;
+            white-space: nowrap;
         }
 
         .pixel-ribbon-tail {
-            position absolute;
-            bottom -15px;
-            width 40px;
-            height 40px;
-            background-color #e0b8c4;
-            border 6px solid #a37c86;
-            z-index 1;
+            position: absolute;
+            bottom: -15px;
+            width: 40px;
+            height: 40px;
+            background-color: #e0b8c4;
+            border: 6px solid #a37c86;
+            z-index: 1;
         }
-        .pixel-ribbon-tail.left { left -20px; transform rotate(15deg); }
-        .pixel-ribbon-tail.right { right -20px; transform rotate(-15deg); }
+        .pixel-ribbon-tail.left { left: -20px; transform: rotate(15deg); }
+        .pixel-ribbon-tail.right { right: -20px; transform: rotate(-15deg); }
 
-         橢圓古典畫框 (Cameo) 
+        /* 橢圓古典畫框 (Cameo) */
         .cameo-frame {
-            background-color #fffafb;
-            border 6px solid #a37c86;
-            border-radius 50%;
-            box-shadow inset 0 0 0 6px #f4d8e0, 0 6px 0px rgba(163, 124, 134, 0.3);
-            width 200px;
-            height 240px;
-            margin 0 auto;
-            display flex;
-            align-items center;
-            justify-content center;
-            position relative;
-            overflow hidden;
+            background-color: #fffafb;
+            border: 6px solid #a37c86;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 6px #f4d8e0, 0 6px 0px rgba(163, 124, 134, 0.3);
+            width: 200px;
+            height: 240px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
-         ----- 像素風按鈕與輸入框 ----- 
+        /* ----- 像素風按鈕與輸入框 ----- */
         .pixel-btn {
-            background-color #f4d8e0; 
-            color #63454e;
-            border 4px solid #a37c86;
-            box-shadow inset 2px 2px 0px #ffffff, 4px 4px 0px #a37c86;
-            transition all 0.1s;
-            cursor pointer;
-            border-radius 4px;
+            background-color: #f4d8e0; 
+            color: #63454e;
+            border: 4px solid #a37c86;
+            box-shadow: inset 2px 2px 0px #ffffff, 4px 4px 0px #a37c86;
+            transition: all 0.1s;
+            cursor: pointer;
+            border-radius: 4px;
         }
 
-        .pixel-btnactive {
-            transform translate(4px, 4px);
-            box-shadow inset 2px 2px 0px #ffffff, 0px 0px 0px #a37c86;
+        .pixel-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: inset 2px 2px 0px #ffffff, 0px 0px 0px #a37c86;
         }
 
         .pixel-btn-outline {
-            background-color #ffffff;
-            color #63454e;
-            border 4px solid #d1a3b0;
-            box-shadow inset -2px -2px 0px #fcf1f4, 4px 4px 0px #d1a3b0;
-            transition all 0.1s;
-            cursor pointer;
-            border-radius 4px;
-            display flex;
-            flex-direction column;
-            align-items center;
-            justify-content center;
-            gap 12px;
+            background-color: #ffffff;
+            color: #63454e;
+            border: 4px solid #d1a3b0;
+            box-shadow: inset -2px -2px 0px #fcf1f4, 4px 4px 0px #d1a3b0;
+            transition: all 0.1s;
+            cursor: pointer;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
         }
 
-        .pixel-btn-outlinehover {
-            background-color #fffafb;
-            border-color #a37c86;
-            box-shadow inset -2px -2px 0px #fcf1f4, 4px 4px 0px #a37c86;
+        .pixel-btn-outline:hover {
+            background-color: #fffafb;
+            border-color: #a37c86;
+            box-shadow: inset -2px -2px 0px #fcf1f4, 4px 4px 0px #a37c86;
         }
 
-        .pixel-btn-outlineactive {
-            transform translate(4px, 4px);
-            box-shadow inset -2px -2px 0px #fcf1f4, 0px 0px 0px #a37c86;
+        .pixel-btn-outline:active {
+            transform: translate(4px, 4px);
+            box-shadow: inset -2px -2px 0px #fcf1f4, 0px 0px 0px #a37c86;
         }
 
         .pixel-input {
-            background-color #ffffff;
-            border 4px solid #a37c86;
-            outline none;
-            box-shadow inset 4px 4px 0px rgba(0,0,0,0.05);
-            border-radius 4px;
-            font-family inherit;
+            background-color: #ffffff;
+            border: 4px solid #a37c86;
+            outline: none;
+            box-shadow: inset 4px 4px 0px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            font-family: inherit;
         }
 
-         動畫 
-        .slide-in-bottom { animation slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; }
-        @keyframes slide-in-bottom { 0% { transform translateY(30px); opacity 0; } 100% { transform translateY(0); opacity 1; } }
+        /* 動畫 */
+        .slide-in-bottom { animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; }
+        @keyframes slide-in-bottom { 0% { transform: translateY(30px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
         
-        .fade-in { animation fade-in 0.8s ease-in both; }
-        @keyframes fade-in { 0% { opacity 0; } 100% { opacity 1; } }
+        .fade-in { animation: fade-in 0.8s ease-in both; }
+        @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
 
-        .float-anim { animation float 3s ease-in-out infinite; }
-        @keyframes float { 0% { transform translateY(0px); } 50% { transform translateY(-8px); } 100% { transform translateY(0px); } }
+        .float-anim { animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0px); } }
 
-        .is-hidden { display none !important; }
-        svg { image-rendering pixelated; }
+        .is-hidden { display: none !important; }
+        svg { image-rendering: pixelated; }
         
-         確保植入的圖片邊緣乾淨，且融入背景 
+        /* 確保植入的圖片邊緣乾淨，且融入背景 */
         .original-img {
-            image-rendering auto;  恢復一般圖片渲染，讓你的照片保持清晰 
-            mix-blend-mode multiply;  去除白底魔法，讓圖片融入畫框 
-            border-radius 8px;  給圖片一點圓角比較好看 
-        }
-    style
-head
-body class=min-h-screen flex items-center justify-center p-4
-
-    div class=frame-wrapper w-full max-w-2xl
-        div class=pixel-ribbon-wrapper
-            div class=pixel-ribbon-tail leftdiv
-            div class=pixel-ribbon-tail rightdiv
-            div class=pixel-ribbon🎀 花仙子魔法占卜 🎀div
-        div
-        
-        div class=absolute -top-6 -left-6 z-30 float-anim pixel-render data-icon=fairy data-size=70div
-
-        div class=pixel-frame
-            div class=inner-dashed-frame p-6 mdp-10 id=app-container
-                
-                !-- 畫面 1：故事導入 --
-                div id=screen-intro class=fade-in text-center space-y-6 pt-4
-                    h1 class=text-2xl mdtext-3xl font-bold text-[#b27a88] mb-4 flex items-center justify-center gap-3
-                        div class=pixel-render data-icon=flower_corner data-size=30div
-                        歡迎來到粉紅魔法園
-                        div class=pixel-render data-icon=flower_corner data-size=30 style=transform scaleX(-1);div
-                    h1
-                    div class=bg-white border-2 border-[#f4d8e0] rounded p-4 text-left text-lg leading-relaxed shadow-sm
-                        p你好呀～！我是小花仙斑比！🌸 在這座撲通撲通的魔法花園裡，每一朵花都藏著神奇的力量喔！p
-                        p class=mt-2斑比聽說你正在尋找屬於你的「幸運花語」，對不對？p
-                    div
-                    
-                    div class=mt-8 space-y-4
-                        label class=block text-xl font-bold快告訴斑比你的名字吧：label
-                        input type=text id=user-name class=pixel-input w-full mdw-23 p-3 text-xl text-center placeholder=輸入名字...
-                        button onclick=startGame() class=pixel-btn block w-full mdw-23 mx-auto p-4 text-xl mt-4 font-bold尋找幸運花語！button
-                    div
-                div
-
-                !-- 畫面 2：問題 1 --
-                div id=screen-q1 class=is-hidden slide-in-bottom text-center space-y-6 pt-4
-                    h2 class=text-2xl font-bold text-[#b27a88]問題 1  4h2
-                    p class=text-xl font-bold bg-[#fcf1f4] p-3 rounded text-[#63454e]「span class=display-name text-[#d195a6]span，你今天的心情是什麼顏色的呢？」p
-                    
-                    div class=grid grid-cols-2 gap-4 mt-6
-                        button onclick=answerQ1('sunflower') class=pixel-btn-outline p-4 text-lg
-                            div class=pixel-render data-icon=sun data-size=48div span陽光般開心燦爛span
-                        button
-                        button onclick=answerQ1('balsam') class=pixel-btn-outline p-4 text-lg
-                            div class=pixel-render data-icon=cloud data-size=48div span像雲朵般平靜輕鬆span
-                        button
-                        button onclick=answerQ1('lily') class=pixel-btn-outline p-4 text-lg
-                            div class=pixel-render data-icon=star data-size=48div span閃閃發亮的好奇span
-                        button
-                        button onclick=answerQ1('rose') class=pixel-btn-outline p-4 text-lg
-                            div class=pixel-render data-icon=heart data-size=48div span充滿愛與粉紅泡泡span
-                        button
-                    div
-                div
-
-                !-- 畫面 3：問題 2 (自動抓取你上傳到 GitHub 的四張花朵圖片) --
-                div id=screen-q2 class=is-hidden slide-in-bottom text-center space-y-6 pt-4
-                    h2 class=text-2xl font-bold text-[#b27a88]問題 2  4h2
-                    p class=text-xl font-bold bg-[#fcf1f4] p-3 rounded「當你閉上眼睛，哪一種香氣最吸引你？」p
-                    
-                    div class=grid grid-cols-2 gap-4 mt-6
-                        !-- 選項：百合 (對應 lily.png) --
-                        button onclick=answerQ2('lily') class=pixel-btn-outline p-4 text-lg relative
-                            img src=lily.png alt=百合 class=w-[90px] h-[90px] object-cover mx-auto original-img 
-                                 onerror=this.style.display='none'; document.getElementById('q2-fallback-lily').classList.remove('hidden');
-                            div id=q2-fallback-lily class=pixel-render hidden data-icon=flower_lily data-size=90div
-                            span class=font-bold純淨的百合span
-                        button
-
-                        !-- 選項：向日葵 (對應 sunflower.png) --
-                        button onclick=answerQ2('sunflower') class=pixel-btn-outline p-4 text-lg
-                            img src=sunflower.png alt=向日葵 class=w-[90px] h-[90px] object-cover mx-auto original-img 
-                                 onerror=this.style.display='none'; document.getElementById('q2-fallback-sunflower').classList.remove('hidden');
-                            div id=q2-fallback-sunflower class=pixel-render hidden data-icon=flower_sunflower data-size=90div
-                            span class=font-bold溫暖的向日葵span
-                        button
-
-                        !-- 選項：玫瑰 (對應 rose.png) --
-                        button onclick=answerQ2('rose') class=pixel-btn-outline p-4 text-lg
-                            img src=rose.png alt=玫瑰 class=w-[90px] h-[90px] object-cover mx-auto original-img 
-                                 onerror=this.style.display='none'; document.getElementById('q2-fallback-rose').classList.remove('hidden');
-                            div id=q2-fallback-rose class=pixel-render hidden data-icon=flower_rose data-size=90div
-                            span class=font-bold浪漫的玫瑰span
-                        button
-
-                        !-- 選項：鳳仙花 (對應 balsam.png) --
-                        button onclick=answerQ2('balsam') class=pixel-btn-outline p-4 text-lg
-                            img src=balsam.png alt=鳳仙花 class=w-[90px] h-[90px] object-cover mx-auto original-img 
-                                 onerror=this.style.display='none'; document.getElementById('q2-fallback-balsam').classList.remove('hidden');
-                            div id=q2-fallback-balsam class=pixel-render hidden data-icon=flower_balsam data-size=90div
-                            span class=font-bold熱情的鳳仙花span
-                        button
-                    div
-                div
-
-                !-- 畫面 4：問題 3 --
-                div id=screen-q3 class=is-hidden slide-in-bottom text-center space-y-6 pt-4
-                    h2 class=text-2xl font-bold text-[#b27a88]問題 3  4h2
-                    p class=text-xl font-bold bg-[#fcf1f4] p-3 rounded「週末的下午，斑比通常會在哪裡找到 span class=display-name text-[#d195a6]span 呢？」p
-                    
-                    div class=grid grid-cols-2 gap-4 mt-6
-                        button onclick=answerQ3('balsam') class=pixel-btn-outline p-4 text-lg
-                            div class=pixel-render data-icon=home data-size=48div span溫暖的家裡span
-                        button
-                        button onclick=answerQ3('sunflower') class=pixel-btn-outline p-4 text-lg
-                            div class=pixel-render data-icon=tree data-size=48div span充滿綠意的自然span
-                        button
-                        button onclick=answerQ3('rose') class=pixel-btn-outline p-4 text-lg
-                            div class=pixel-render data-icon=coffee data-size=48div span香氣四溢的咖啡廳span
-                        button
-                        button onclick=answerQ3('lily') class=pixel-btn-outline p-4 text-lg
-                            div class=pixel-render data-icon=palette data-size=48div span專注創作的角落span
-                        button
-                    div
-                div
-
-                !-- 畫面 5：問題 4 --
-                div id=screen-q4 class=is-hidden slide-in-bottom text-center space-y-6 pt-4
-                    h2 class=text-2xl font-bold text-[#b27a88]問題 4  4h2
-                    p class=text-xl font-bold bg-[#fcf1f4] p-3 rounded「如果你有一根魔法仙女棒，你想變出什麼力量？」p
-                    
-                    div class=grid grid-cols-2 gap-4 mt-6
-                        button onclick=answerQ4('sunflower') class=pixel-btn-outline p-4 text-lg
-                            div class=pixel-render data-icon=sword data-size=48div span劈開困難的勇氣span
-                        button
-                        button onclick=answerQ4('rose') class=pixel-btn-outline p-4 text-lg
-                            div class=pixel-render data-icon=heart data-size=48div span溫暖心靈的愛span
-                        button
-                        button onclick=answerQ4('balsam') class=pixel-btn-outline p-4 text-lg
-                            div class=pixel-render data-icon=feather data-size=48div span撫平焦慮的平靜span
-                        button
-                        button onclick=answerQ4('lily') class=pixel-btn-outline p-4 text-lg
-                            div class=pixel-render data-icon=bulb data-size=48div span閃耀的靈感之光span
-                        button
-                    div
-                div
-
-                !-- 畫面 6：結果顯示 --
-                div id=screen-result class=is-hidden slide-in-bottom text-center space-y-4 pt-2
-                    h2 class=text-3xl font-bold text-[#a37c86] tracking-widest🌸 幸運花語 🌸h2
-                    p class=text-sm font-bold text-[#d195a6] uppercase tracking-widest- Flower Fortune -p
-                    
-                    div class=mt-4 text-left relative
-                        div class=flex flex-col mdflex-row items-center gap-8 mt-6
-                            
-                            !-- 橢圓古典畫框 (Cameo) 裝載花朵圖片 --
-                            div class=cameo-frame float-anim shrink-0
-                                div id=result-icondiv
-                            div
-                            
-                            div class=space-y-4 flex-1 bg-[#fffafb] p-5 rounded-lg border-2 border-[#f4d8e0]
-                                h3 class=text-xl font-bold border-b-2 border-dashed border-[#d1a3b0] pb-2 mb-2
-                                    致 span class=display-name text-[#d195a6]span：
-                                h3
-                                p class=text-lgstrong class=text-[#a37c86]💌 幸運花朵：strong span id=flower-name class=font-boldspanp
-                                p class=text-mdstrong class=text-[#a37c86]📖 花語秘密：strong span id=flower-meaningspanp
-                                div class=bg-[#fdf5f6] p-3 border-l-4 border-[#d195a6] rounded mt-2
-                                    p class=text-sm leading-relaxedstrong class=text-[#a37c86]✨ 斑比叮嚀：strong span id=flower-fortunespanp
-                                div
-                            div
-                        div
-                    div
-
-                    !-- 底部 CTA 區塊 --
-                    div class=pt-6 mt-4
-                        button onclick=restartGame() class=pixel-btn p-4 w-full text-xl font-bold float-anim shadow-lg
-                            💖 再測一次！ 💖
-                        button
-                    div
-                div
-
-            div
-        div
-    div
-
-    script
-         --- 高清像素圖示引擎 (保留其他 UI 圖示，如太陽、雲朵、星星等) ---
-        const colors = {
-            'b' '#4a3b32', 'W' '#ffffff', 'w' '#f0e6e6', 'y' '#ffe66d', 'Y' '#ffa62b', 
-            'n' '#8b5a2b', 'N' '#5c3a21', 'g' '#a7c957', 'G' '#6a994e', 'r' '#ff4d6d', 
-            'R' '#c9184a', 'p' '#ffb3c6', 'm' '#e0aaff', 'M' '#c77dff', 'c' '#caf0f8', ' ' 'transparent'
-        };
-
-        const pixelArts = {
-            'fairy' [    bbbb   ,   bppppb  ,  bpwwwwpb ,  bwbbwwpb ,  bpwwwwpb ,  cbwbbwbc , ccbwwwwbcc,  cbbbbbbc  ],
-            'flower_corner' [ bbbbbb  , bWwwwbb , bwpwwpwb, bwwpwwbb, bwpwwpwb, bwwpwwbb,  bbwbb  ,   bb     ],
-            'sun' [                 ,        bb       ,   b   bYYb   b  ,    b bYyyYb b   ,     bbYyyYbb    ,   bbYyyyyyyYbb  ,  bYYyyyyyyyyYYb ,  bYyyyyyyyyyyYb ,  bYyyyyyyyyyyYb ,  bYYyyyyyyyyYYb ,   bbYyyyyyyYbb  ,     bbYyyYbb    ,    b bYyyYb b   ,   b   bYYb   b  ,        bb       ,                  ],
-            'cloud' [                 ,                 ,                 ,       bbbb      ,     bbWWWWbb    ,    bWWccccWWb   ,   bWWccccccWbb  ,  bbWccccccccWWb ,  bWWccccccccccb ,  bWcccccccccbcb ,   bbbbbbbbbbbb  ,                 ,                 ,                 ,                 ,                  ],
-            'star' [                 ,        bb       ,       bYYb      ,       bYYb      ,   bbbbbYYbbbbb  ,   bYYYYYYYYYYb  ,    bYYYYYYYYb   ,     bYYYYYYb    ,    bYYYYYYYYb   ,   bYYYbbbbYYYb  ,   bYYb    bYYb  ,   bbb      bbb  ,                 ,                 ,                 ,                  ],
-            'home' [                 ,        bb       ,       bRRb      ,      bRRRRb     ,     bRRRRRRb    ,    bRRRRRRRRb   ,   bRRRbbbbRRRb  ,  bbbbbbWWbbbbbb ,    bWWWWWWWWb   ,    bWWbbbbWWb   ,    bWWbYYbWWb   ,    bWWbbbbWWb   ,    bWWWWWWWWb   ,    bbbbbbbbbb   ,                 ,                  ],
-            'tree' [                 ,       bbbb      ,     bbGGGGbb    ,    bGGgGGGgGb   ,   bGgggGGgggGb  ,   bGGGGGGGGGGb  ,   bGggggggggGb  ,    bGGGGGGGGb   ,     bbbnnbbb    ,       bnnb      ,       bnnb      ,      bbnnbb     ,     bnnnnnnb    ,     bbbbbbbb    ,                 ,                  ],
-            'coffee' [                 ,       bbbb      ,       bWWb      ,      bbbbbb     ,     bWWWWWWb    ,    bWWWWWWWWbb  ,    bWnnnnWWbWb  ,    bWnnnnWWbWb  ,    bWnnnnWWbb   ,    bWWWWWWWWb   ,     bWWWWWWb    ,      bbbbbb     ,    bbWWWWWWbb   ,    bbbbbbbbbb   ,                 ,                  ],
-            'palette' [                 ,      bbbbbb     ,    bbnnnnbnbb   ,   bnnnnnnbbbnb  ,  bnnRRnnnnbnnb  ,  bnRRRnnnnnnnb  ,  bnnnnYYnnnnnb  ,  bnCCnYYnnnnnb  ,  bCCCnnnnGGnnb  ,  bnnnnnnnGGnnb  ,   bnnnnnnnnnb   ,    bbnnnnnnb    ,      bbbbbb     ,                 ,                 ,                  ],
-            'sword' [                 ,              bb ,             bWb ,            bWbb ,           bWWb  ,          bWWb   ,         bWWb    ,        bWWb     ,       bWWb      ,    bbbbWbbbb    ,   bYYb b bYYb   ,   bbbb b bbbb   ,       bYb       ,       bYb       ,       bbb       ,                  ],
-            'heart' [                 ,                 ,    bbbb  bbbb   ,   brrRRbbrrRRb  ,  brrrrrrrrrRRRb ,  brWWrrrrrrrRRb ,  brrWrrrrrrrRRb ,   brrrrrrrrRRb  ,    brrrrrrRRb   ,     brrrrRRb    ,      brrRRb     ,       brRb      ,        bb       ,                 ,                 ,                  ],
-            'feather' [                 ,            bb   ,           bWWb  ,          bWWWb  ,         bWccWb  ,        bWWcWWb  ,       bWWccWb   ,      bWWWcWWb   ,     bWWccWb     ,    bWWWcWWb     ,   bWccWb        ,   bWWb          ,   bbb           ,   b             ,                 ,                  ],
-            'bulb' [                 ,       bbbb      ,     bbYYYYbb    ,    bYYWWWWYYb   ,   bYYWWWWWYYYb  ,   bYYWWWWYYYYb  ,   bYYWYYYYYYYb  ,    bYYYbbYYYYb  ,    bYYb  bYYb   ,     bb    bb    ,     bnnnnnnb    ,     bnnnnnnb    ,     bnnnnnnb    ,      bnnnnnb    ,       bnbnb     ,        bbb       ],
-
-             --- 防呆備用像素圖 (萬一 GitHub 抓不到圖片時，才不會破圖) ---
-            'flower_lily' [                                 ,                                 ,                 bbbb            ,                bWWWWbb          ,               bWWwwWWwb         ,              bWWwbbwWWb         ,             bWWWb  bWWb         ,            bWWWb    bWb         ,           bWWWb     bWb         ,          bWWWb     bWWb         ,   bbbb  bWWwbb   bWWWb          ,  bWWWWbb bWWWwbb bWWb     bb    , bWWwwWWWbbWWWWwbbbWwb   bbWWb   , bWWwbbbWWwwWWWWWWWwbbbbbWWWWb   , bWWWb  bbWWwwWWWwwWWWWWwWWWWb   , bWWwbb   bbWwwyYywwWwwWwWWWwb   ,   bWWwbb    bWwYYYwwWbbbWWWwbb  ,    bWWWwbb  bWwwYwwWwb bWWwbb   ,     bbWWWwbbbbWwwwWwbb bWWwbb   ,       bbWWWWwwWWWWwwb   bWwwb   ,         bbWWWWWWWwbb     bWWb   ,           bbbWWwwbb       bWb   ,              bbbbb        bwb   ,               bGb         bb    ,               bGb               ,              bGGb               ,        bb    bGGb               ,       bGGb   bGb                ,      bGGgGb  bGb                ,      bGGgGb bGGb                ,       bbbbb bGGb                ,              bb                  ],
-            'flower_sunflower' [                                 ,             bbb   bbb           ,           bbbYybbbyYbbb         ,          bbYyyyybyyyyYbb        ,         bbYyyyyyyyYyyyyYbb      ,      bbbYyyyyyYyyYyyyyyyYbbb    ,     bbYyyyyYYYYYYYYYYyyyyYbb    ,    bbYyyyyYYYNNNNNNYYYyyyyYbb   ,   bbYyyyyYYNNnnnnnnNNYYyyyyYbb  ,  bbYyyyyyYNNnnnnnnnnNNYyyyyyYbb ,  bYyyyyyYYNnnnNNNNnnnNYYyyyyyYb ,  bYyyyyyYNnnNNnnnnNNnnNYyyyyyYb , bbYyyyyyYNnnNnnnnnnNnnNYyyyyyYbb, bYyyyyyYYNnnNnnnnnnNnnNYYyyyyyYb, bYyyyyyYYNnnNnnnnnnNnnNYYyyyyyYb, bYyyyyyyYNnnNNnnnnNNnnNYyyyyyyYb, bbYyyyyyYYNnnnNNNNnnnNYYyyyyyYbb,  bYyyyyyyYNNnnnnnnnnNNYyyyyyyYb ,  bbYyyyyyyYYNNnnnnNNYYyyyyyyYbb ,   bbYyyyyyyYYYNNNNYYYyyyyyyYbb  ,    bbYyyyyyyYYYYYYYYyyyyyyYbb   ,     bbbYyyyyyyYyyYyyyyyyYbbb    ,       bbYyyyyyYyyYyyyyyybb      ,         bbYyyyyyyyyyyYbb        ,          bbYyyyyyYyyYbb         ,           bbbYybbbyYbb          ,             bbb   bbb           ,               bGGb              ,          bb   bGGb              ,         bGGbb bGb               ,         bGGgGbbGb               ,          bbbbbbb                 ],
-            'flower_rose' [                                 ,              bbbb               ,            bbrrRbbb             ,          bbrrrrrrrRbb           ,         brrrrrrrrrrrRbb         ,        brrrrrbbbrrrrrrRb        ,       brrrrrbrRRbrrrrrrRb       ,      brrrrrbrRrrrbrrrrrrRb      ,     brrrrrbrRrrrrrbrrrrrrRb     ,     brrrrbrRrrrrrrRbrrrrrRb     ,    brrrrbrRrrrrrrrrRbrrrrRbb    ,    brrrrbrRrrrrrrrrRbrrrrRbb    ,    brrrrbrRrrbbbrrrRbrrrrRbb    ,    brrrrbrRrbRRRbrRbrrrrrRb     ,    brrrrbrRbrRrrbrbrrrrrrRb     ,     brrrrbrbrRrrbrbrrrrrRb      ,     brrrrrbrRrrrbrrrrrrrRb      ,      brrrrrbrrrbrrrrrrrRb       ,       brrrrrbbbRrrrrrrrbb       ,        bbrrrrrrrrrrrrRbb        ,          bbrrrrrrrrrRbb         ,            bbbRRRbbb            ,               bbbb              ,               bGb               ,              bGGb               ,        bb    bGGb       bb      ,       bGGb   bGb     bGGb       ,      bGGgGb  bGb    bGGgGb      ,      bGGgGbb bGGb   bGGgGb      ,       bbbbbb bGGb    bbbbb      ,               bb                ,                                  ],
-            'flower_balsam' [                                 ,               bbb               ,             bbmMmbb             ,            bmmMMMmmbb           ,           bmmMMMMMmMMbb         ,        bbbmMMMMMMMmMMMmb        ,      bbmmmmMMMMMMmMMMMMmbb      ,     bmmMMMMmmMMMmmMMMMMMmmb     ,     bmMMMMMMmMMmMMMMMMMMmMb     ,    bbmMMMMMMmMmMmMMMMMMmMMbb    ,   bmmMMMMMMmMMMMmMMMMmMMMmmb    ,  bmmMMMMMMMmMwMMMwMmMMMMMMmmb   ,  bmMMMMMMMmMMwwwMMmMMMMMMMMmb   , bmMMMMMMMMmMMMwwMMMMMMMMMMMMmb  , bmMMMMMMMMmMwWwwWwMmMMMMMMMMmb  , bmmMMMMMMMmMwwwwwMmMmMMMMMMMmb  ,  bmMMMMMmMMMMwWwwWwMMMMMmMMmb   ,  bmmMMmmMMMMMwwwMMMMMMMmmMmmb   ,   bbmmmMMMMMMMwMMMMMMMMMmmbb    ,     bbmMMMMMMMMMMMMMMMMmbb      ,      bbmMMMMMMMMMMMMMMmbb       ,        bbmMMMMMMMMMMmbb         ,          bbmMMMMMMmbb           ,            bbbMMbbb             ,               bb                ,              bGGb               ,              bGGb  bb           ,             bGGbb bGGb          ,             bGb  bGGgGb         ,             bGb  bGGgGb         ,             bGb   bbbbb         ,             bbb                  ]
-        };
-
-        function createSVG(artKey, size) {
-            const lines = pixelArts[artKey];
-            if (!lines) return '';
-            const height = lines.length;
-            const width = lines[0].length;
-            let svg = `svg viewBox=0 0 ${width} ${height} width=${size} height=${size} xmlns=httpwww.w3.org2000svg`;
-            for (let y = 0; y  height; y++) {
-                for (let x = 0; x  width; x++) {
-                    const char = lines[y][x];
-                    if (char && colors[char] && char !== ' ') {
-                        svg += `rect x=${x} y=${y} width=1.1 height=1.1 fill=${colors[char]} `; 
-                    }
-                }
-            }
-            svg += 'svg';
-            return svg;
-        }
-
-         初始化所有標有 .pixel-render 的元素
-        document.querySelectorAll('.pixel-render').forEach(el = {
-            el.innerHTML = createSVG(el.dataset.icon, el.dataset.size  48);
-        });
-
-         --- 遊戲邏輯與文案 ---
-        const state = { name '', q1 '', q2 '', q3 '', q4 '' };
-
-        const flowers = {
-            lily {
-                name '純潔百合 (Lily)',
-                meaning '純潔、莊嚴與順利。',
-                fortune '這朵百合花帶來了優雅的香氣。今天無論遇到什麼情況，你的冷靜與智慧都能幫你化解一切危機，請保持優雅的步調前進吧！'
-            },
-            sunflower {
-                name '溫暖向日葵 (Sunflower)',
-                meaning '信念、光輝與忠誠。',
-                fortune '花蕊裡藏著溫暖的陽光！今天請保持微笑，即使遇到小困難，只要心向光明，好運就會緊緊跟隨你喔！斑比為你加油！'
-            },
-            rose {
-                name '浪漫玫瑰 (Pink Rose)',
-                meaning '溫柔、感動與愛的宣言。',
-                fortune '玫瑰的馨香充滿了愛的魔法。今天你可能會遇到善待你的人，或者收到小驚喜，記得用笑容回報這份溫暖喔！'
-            },
-            balsam { 
-                name '熱情鳳仙花 (Balsam)',
-                meaning '熱情、好運與堅韌。',
-                fortune '這朵桃紅色的鳳仙花帶來了滿滿的活力！今天你的行動力超級強，遇到挑戰也能輕鬆跨越，大膽展現你自信迷人的一面吧！'
-            }
-        };
-
-        function getEl(id) { return document.getElementById(id); }
-        function hideAllScreens() { ['screen-intro', 'screen-q1', 'screen-q2', 'screen-q3', 'screen-q4', 'screen-result'].forEach(id = getEl(id).classList.add('is-hidden')); }
-        function triggerAnimation(el) { el.classList.remove('is-hidden', 'slide-in-bottom'); void el.offsetWidth; el.classList.add('slide-in-bottom'); }
-
-        function startGame() {
-            const nameInput = getEl('user-name').value.trim();
-            if (!nameInput) { alert('請輸入名字喔！'); return; }
-            state.name = nameInput;
-            document.querySelectorAll('.display-name').forEach(el = el.innerText = state.name);
-            hideAllScreens(); triggerAnimation(getEl('screen-q1'));
-        }
-
-        function answerQ1(ans) { state.q1 = ans; hideAllScreens(); triggerAnimation(getEl('screen-q2')); }
-        function answerQ2(ans) { state.q2 = ans; hideAllScreens(); triggerAnimation(getEl('screen-q3')); }
-        function answerQ3(ans) { state.q3 = ans; hideAllScreens(); triggerAnimation(getEl('screen-q4')); }
-        function answerQ4(ans) { state.q4 = ans; calculateResult(); }
-
-        function calculateResult() {
-            const scores = { lily 0, sunflower 0, rose 0, balsam 0 };
-            
-            scores[state.q1] += 1;
-            scores[state.q2] += 2;  第二題加權重
-            scores[state.q3] += 1;
-            scores[state.q4] += 1;
-
-             找出最高分的花朵代號 (lily, sunflower, rose, 或 balsam)
-            let finalFlower = Object.keys(scores).reduce((a, b) = scores[a]  scores[b]  a  b);
-            
-            const flower = flowers[finalFlower];
-            getEl('flower-name').innerText = flower.name;
-            getEl('flower-meaning').innerText = flower.meaning;
-            getEl('flower-fortune').innerText = flower.fortune;
-            
-            const resultIcon = getEl('result-icon');
-            
-             動態產生對應的圖片檔名 (例如 finalFlower 是 'rose'，就會去抓 'rose.png')
-            const imageFileName = `${finalFlower}.png`;
-
-             將結果畫框替換成你上傳的圖片
-            resultIcon.innerHTML = `
-                img src=${imageFileName} alt=${flower.name} class=original-img style=displayblock; width 150px; height 150px; object-fit contain;
-                onerror=this.outerHTML = createSVG('flower_${finalFlower}', 150);
-            `;
-
-            hideAllScreens(); triggerAnimation(getEl('screen-result'));
-        }
-
-        function restartGame() {
-            getEl('user-name').value = '';
-            hideAllScreens(); triggerAnimation(getEl('screen-intro'));
-        }
-    script
-body
-html
+            image-rendering: auto;
