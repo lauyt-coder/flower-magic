@@ -94,7 +94,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
+            overflow: hidden; /* 這個屬性會把超出的圖片裁切成完美的圓形 */
         }
 
         /* ----- 像素風按鈕與輸入框 ----- */
@@ -166,6 +166,7 @@
             image-rendering: auto; 
             mix-blend-mode: multiply; 
             border-radius: 8px; 
+            /* 注意：這裡的尺寸和縮放將由 JavaScript 直接控制 */
         }
     </style>
 </head>
@@ -183,11 +184,12 @@
         <div class="pixel-frame">
             <div class="inner-dashed-frame p-6 md:p-10" id="app-container">
                 
+                <!-- 畫面 1：故事導入 -->
                 <div id="screen-intro" class="fade-in text-center space-y-6 pt-4">
                     <h1 class="text-2xl md:text-3xl font-bold text-[#b27a88] mb-4 flex items-center justify-center gap-3">
                         <div class="pixel-render" data-icon="flower_corner" data-size="30"></div>
                         歡迎來到粉紅魔法園
-                        <div class="pixel-render" data-icon="flower_corner" data-size="30" style="transform: scaleX(-1);"></div>
+                        <div class="pixel-render" data-icon="flower_corner" data-size="30" style="transform: scaleX(-1);"></div >
                     </h1>
                     <div class="bg-white border-2 border-[#f4d8e0] rounded p-4 text-left text-lg leading-relaxed shadow-sm">
                         <p>你好呀～！我是小花仙斑比！🌸 在這座撲通撲通的魔法花園裡，每一朵花都藏著神奇的力量喔！</p>
@@ -201,6 +203,7 @@
                     </div>
                 </div>
 
+                <!-- 畫面 2：問題 1 -->
                 <div id="screen-q1" class="is-hidden slide-in-bottom text-center space-y-6 pt-4">
                     <h2 class="text-2xl font-bold text-[#b27a88]">問題 1 / 4</h2>
                     <p class="text-xl font-bold bg-[#fcf1f4] p-3 rounded text-[#63454e]">「<span class="display-name text-[#d195a6]"></span>，你今天的心情是什麼顏色的呢？」</p>
@@ -221,6 +224,7 @@
                     </div>
                 </div>
 
+                <!-- 畫面 3：問題 2 -->
                 <div id="screen-q2" class="is-hidden slide-in-bottom text-center space-y-6 pt-4">
                     <h2 class="text-2xl font-bold text-[#b27a88]">問題 2 / 4</h2>
                     <p class="text-xl font-bold bg-[#fcf1f4] p-3 rounded">「當你閉上眼睛，哪一種香氣最吸引你？」</p>
@@ -256,6 +260,7 @@
                     </div>
                 </div>
 
+                <!-- 畫面 4：問題 3 -->
                 <div id="screen-q3" class="is-hidden slide-in-bottom text-center space-y-6 pt-4">
                     <h2 class="text-2xl font-bold text-[#b27a88]">問題 3 / 4</h2>
                     <p class="text-xl font-bold bg-[#fcf1f4] p-3 rounded">「週末的下午，斑比通常會在哪裡找到 <span class="display-name text-[#d195a6]"></span> 呢？」</p>
@@ -276,6 +281,7 @@
                     </div>
                 </div>
 
+                <!-- 畫面 5：問題 4 -->
                 <div id="screen-q4" class="is-hidden slide-in-bottom text-center space-y-6 pt-4">
                     <h2 class="text-2xl font-bold text-[#b27a88]">問題 4 / 4</h2>
                     <p class="text-xl font-bold bg-[#fcf1f4] p-3 rounded">「如果你有一根魔法仙女棒，你想變出什麼力量？」</p>
@@ -296,6 +302,7 @@
                     </div>
                 </div>
 
+                <!-- 畫面 6：結果顯示 -->
                 <div id="screen-result" class="is-hidden slide-in-bottom text-center space-y-4 pt-2">
                     <h2 class="text-3xl font-bold text-[#a37c86] tracking-widest">🌸 幸運花語 🌸</h2>
                     <p class="text-sm font-bold text-[#d195a6] uppercase tracking-widest">- Flower Fortune -</p>
@@ -303,8 +310,9 @@
                     <div class="mt-4 text-left relative">
                         <div class="flex flex-col md:flex-row items-center gap-8 mt-6">
                             
+                            <!-- 橢圓古典畫框 (Cameo) 裝載花朵圖片 -->
                             <div class="cameo-frame float-anim shrink-0">
-                                <div id="result-icon"></div>
+                                <div id="result-icon" class="w-full h-full flex items-center justify-center"></div>
                             </div>
                             
                             <div class="space-y-4 flex-1 bg-[#fffafb] p-5 rounded-lg border-2 border-[#f4d8e0]">
@@ -313,13 +321,14 @@
                                 </h3>
                                 <p class="text-lg"><strong class="text-[#a37c86]">💌 幸運花朵：</strong> <span id="flower-name" class="font-bold"></span></p>
                                 <p class="text-md"><strong class="text-[#a37c86]">📖 花語秘密：</strong> <span id="flower-meaning"></span></p>
-                                <div class="bg-[#fdf5f6] p-3 border-l-4 border-[#d195a6] rounded mt-2">
+                                <div class="bg-[#fdf5f6] p-3 border-l-4 border-[#d1a3b0] rounded mt-2">
                                     <p class="text-sm leading-relaxed"><strong class="text-[#a37c86]">✨ 斑比叮嚀：</strong> <span id="flower-fortune"></span></p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- 底部 CTA 區塊 -->
                     <div class="pt-6 mt-4">
                         <button onclick="restartGame()" class="pixel-btn p-4 w-full text-xl font-bold float-anim shadow-lg">
                             💖 再測一次！ 💖
@@ -439,11 +448,14 @@
             getEl('flower-fortune').innerText = flower.fortune;
             
             const resultIcon = getEl('result-icon');
+            
             const imageFileName = `${finalFlower}.png`;
 
+            // 【魔法修改區】: 強制填滿畫框 (object-fit: cover) 並放大 1.4 倍 (transform: scale)
             resultIcon.innerHTML = `
-                <img src="${imageFileName}" alt="${flower.name}" class="original-img" style="display:block; width: 230px; height: 230px; object-fit: contain;"
-                onerror="this.outerHTML = createSVG('flower_${finalFlower}', 230);">
+                <img src="${imageFileName}" alt="${flower.name}" class="original-img" 
+                style="display:block; width: 200px; height: 240px; object-fit: cover; transform: scale(1.4);"
+                onerror="this.outerHTML = createSVG('flower_${finalFlower}', 200);">
             `;
 
             hideAllScreens(); triggerAnimation(getEl('screen-result'));
