@@ -442,8 +442,8 @@
             const imageFileName = `${finalFlower}.png`;
 
             resultIcon.innerHTML = `
-                <img src="${imageFileName}" alt="${flower.name}" class="original-img" style="display:block; width: 150px; height: 150px; object-fit: contain;"
-                onerror="this.outerHTML = createSVG('flower_${finalFlower}', 150);">
+                <img src="${imageFileName}" alt="${flower.name}" class="original-img" style="display:block; width: 230px; height: 230px; object-fit: contain;"
+                onerror="this.outerHTML = createSVG('flower_${finalFlower}', 230);">
             `;
 
             hideAllScreens(); triggerAnimation(getEl('screen-result'));
