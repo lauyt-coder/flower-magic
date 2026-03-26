@@ -442,7 +442,7 @@
             const imageFileName = `${finalFlower}.png`;
 
             resultIcon.innerHTML = `
-                <img src="${imageFileName}" alt="${flower.name}" class="original-img" style="display:block; width: 230px; height: 230px; object-fit: contain;"
+                <img src="${imageFileName}" alt="${flower.name}" class="original-img" style="display:block; width: 230px; height: 230px; object-fit: cover;"
                 onerror="this.outerHTML = createSVG('flower_${finalFlower}', 230);">
             `;
 
